@@ -28,9 +28,9 @@ unsigned int random_generator(int max_limit)
 		dum=modulo;
 	}
 	seed=dum;
-    if(dum%max_limit==0||dum%max_limit==1)
-    {
-    	return 2;
+        if(dum%max_limit==0||dum%max_limit==1)
+        {
+    	   return 2;
 	}
 	else
 	{
@@ -58,16 +58,16 @@ void draw_boundary()
 	   {
 	    
 		   if(width_index==1)
-	       {
-	       	printf("_");
+	           {
+	         	printf("_");
 		   }
 		   else if(width_index==30)
 		   {
 		   	printf("-");
 		   }
 		   else if(height_index==1||height_index==60)
-	       {
-	       	printf("|");
+	           {
+	        	printf("|");
 		   }
 		   else if(width_index==food_x&&height_index==food_y)
 		   {
@@ -77,12 +77,12 @@ void draw_boundary()
 		   {
 		   	printf("#");
 		   }
-           else 
-           {
-           	is_snake=0;
-           	for(ind=1;ind<snake_length;ind++)
-           	{
-               if(snake[ind].x==width_index&&snake[ind].y==height_index)
+                   else 
+                   {
+           	        is_snake=0;
+           	        for(ind=1;ind<snake_length;ind++)
+           	        {
+                            if(snake[ind].x==width_index&&snake[ind].y==height_index)
 			     {
 			    	printf("0");
 			    	is_snake=1;
@@ -90,7 +90,7 @@ void draw_boundary()
 			     }	
 			}
 			if(!is_snake)
-		    	{
+		    	    {
 				  printf(" ");
 			    }
 		   }
@@ -122,34 +122,34 @@ void get_key()
 }
 void snake_movement()
 {   
-    Positions temp; 
+        Positions temp; 
 	Positions prev=snake[0]; 
-    for(ind=1;ind<snake_length;ind++)
-    {
-        temp=snake[ind];
-        snake[ind]=prev;;
-        prev=temp;
+        for(ind=1;ind<snake_length;ind++)
+        {
+           temp=snake[ind];
+           snake[ind]=prev;;
+           prev=temp;
 	}
 	if(key==8)
 	{
-		snake[0].x--;
+	   snake[0].x--;
 	}
 	else if(key==2)
 	{
-		snake[0].x++;
+	   snake[0].x++;
 	}
 	else if(key==4)
 	{
-		snake[0].y--;
+	   snake[0].y--;
 	}
 	else if (key==6)
 	{
-		snake[0].y++;
+	   snake[0].y++;
 	}
 	
 	if(snake[0].x<=1||snake[0].x>=30||snake[0].y<=1||snake[0].y>=60)
 	{
-		gameover=1;
+	   gameover=1;
 	}
 	for(ind=1;ind<snake_length;ind++)
        	{
@@ -157,8 +157,8 @@ void snake_movement()
            	     {
            	   	    gameover=1;
            	   	    break;
-			     }  
-		}
+		     }  
+        }
 	if(snake[0].x==food_x&&snake[0].y==food_y)
 	{
 		score+=10;
@@ -170,21 +170,21 @@ void snake_movement()
 }
 int main()
 {    
-    seed=(unsigned int)time(NULL);
-    gameover=0;
+        seed=(unsigned int)time(NULL);
+        gameover=0;
 	initial_setup();
 	printf("WELCOME!!\n\nINSTRUCTIONS:\n\nPress 8 to move the snake up.\n\nPress 2 to move the snake down.\n\nPress 6 to move the snake right.\n\nPress 4 to move the snake left.\n\nPress 5 to exit the game.\n\n");
 	printf("PRESS ENTER KEY TO CONTINUE\n");
 	if((int)getch()==13)
 	{
 	  system("cls");
-      while(!gameover)
+        while(!gameover)
     	{
            draw_boundary();
            get_key();
            snake_movement();
            system("cls");
-	    }
+	}
 	}
 	printf("GAME OVER!!!\nTOTAL SCORE:%d",score);
 }
