@@ -178,13 +178,13 @@ int main()
 	if((int)getch()==13)
 	{
 	  system("cls");
-        while(!gameover)
-    	{
-           draw_boundary();
-           get_key();
-           snake_movement();
-           system("cls");
-	}
+          while(!gameover)
+    	  {
+            draw_boundary();
+            get_key();
+            snake_movement();
+            system("cls");
+	  }
 	}
 	printf("GAME OVER!!!\nTOTAL SCORE:%d",score);
 }
