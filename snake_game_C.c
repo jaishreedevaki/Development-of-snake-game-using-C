@@ -187,4 +187,5 @@ int main()
 	  }
 	}
 	printf("GAME OVER!!!\nTOTAL SCORE:%d",score);
+	return 0;
 }
