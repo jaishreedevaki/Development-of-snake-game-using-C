@@ -12,7 +12,6 @@ int key;
 int score=0;
 int gameover;
 int snake_length=1;
-int ind;
 typedef struct
 {
 	int x;
@@ -52,6 +51,7 @@ void draw_boundary()
 	int height_index;
 	int width_index;
 	int is_snake;
+	int ind;
 	for(width_index=1;width_index<=30;width_index++)
 	{
 	   for(height_index=1;height_index<=60;height_index++)
@@ -124,6 +124,7 @@ void snake_movement()
 {   
         Positions temp; 
 	Positions prev=snake[0]; 
+	int ind;
         for(ind=1;ind<snake_length;ind++)
         {
            temp=snake[ind];
